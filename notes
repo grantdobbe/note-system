@@ -1,18 +1,18 @@
 #!/bin/bash
 
 # path to repo
-PATH=/home/gdobbe/Notes
+NOTESPATH=/home/gdobbe/Notes
 # today's filename
 FILE=$(date +%m-%d)-notes
 YEAR=$(date +%Y)
 MONTH=$(date +%m)
 
 # look for a file matching the pattern of mm-dd-notes
-if [ ! -f $PATH/$YEAR/$MONTH/$FILE ]; then
+if [ ! -f $NOTESPATH/$YEAR/$MONTH/$FILE ]; then
     # if it doesn't exist, create it.
     echo "No file for today. Creating."
-    touch $PATH/$YEAR/$MONTH/$FILE
+    touch $NOTESPATH/$YEAR/$MONTH/$FILE
 fi
 # open that file
-geany $PATH/$YEAR/$MONTH/$FILE 
+geany $NOTESPATH/$YEAR/$MONTH/$FILE &
 # exit gracefully.
