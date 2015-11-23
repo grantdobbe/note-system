@@ -2,6 +2,8 @@
 
 # path to repo
 NOTESPATH=/home/gdobbe/Notes
+EDITOR=`which geany`
+
 # today's filename
 FILE=$(date +%m-%d)-notes
 YEAR=$(date +%Y)
@@ -14,5 +16,5 @@ if [ ! -f $NOTESPATH/$YEAR/$MONTH/$FILE ]; then
     touch $NOTESPATH/$YEAR/$MONTH/$FILE
 fi
 # open that file
-geany $NOTESPATH/$YEAR/$MONTH/$FILE &
+${EDITOR} $NOTESPATH/$YEAR/$MONTH/$FILE &
 # exit gracefully.
