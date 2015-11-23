@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# SETTINGS!
+GIT=`which git`                         # some systems have problems with identifying where git is
+FLASHBAKE=`which flashbake`             # same as above; see https://github.com/commandline/flashbake/wiki/Running for more info
+REPODIR=/home/gdobbe/Notes              # where your notes repo lives
+SSH_KEY=/home/gdobbe/.ssh/id_ecdsa      # the key you want to use for connecting to your remote git repository
+
+# first, import the ssh key because cron and variable scope and all that
+ssh-agent bash -c 'ssh-add '$SSH_KEY    
+
+# switch to the notes repo
+cd ${REPODIR}
+
+# have flashbake commit the repo
+${FLASHBAKE} $REPODIR 
+# then, pull from remote 
+${GIT} pull origin master
+# then push!
+${GIT} push origin master

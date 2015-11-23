@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# path to repo
-NOTESPATH=/home/gdobbe/Notes
-EDITOR=`which geany`
+# SETTINGS!
+NOTESPATH=/home/gdobbe/Notes        # path to repo
+EDITOR=`which geany`                # your favorite text editor!
 
-# today's filename
+# today's filename, along with simple numbers for the year and month direcotries
 FILE=$(date +%m-%d)-notes
 YEAR=$(date +%Y)
 MONTH=$(date +%m)
@@ -15,6 +15,5 @@ if [ ! -f $NOTESPATH/$YEAR/$MONTH/$FILE ]; then
     echo "No file for today. Creating."
     touch $NOTESPATH/$YEAR/$MONTH/$FILE
 fi
-# open that file
+# then, open that file in the background with our trusty editor
 ${EDITOR} $NOTESPATH/$YEAR/$MONTH/$FILE &
-# exit gracefully.
