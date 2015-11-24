@@ -20,9 +20,12 @@ And that's it. Enjoy!
 
 ### Release Notes
 
-v0.2, 24 November 2015: incorporated a pull request from @retornam to use a config file
-                        resolved a bash bug I didn't notice 
-v0.1, 23 November 2015: initial release.
+v0.2, 24 November 2015: 
+- incorporated a pull request from @retornam to use a config file
+- resolved a bash bug with cron I didn't notice before
+
+v0.1, 23 November 2015: 
+- initial release.
 
 
 
