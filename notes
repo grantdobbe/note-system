@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# SETTINGS!
-NOTESPATH=/home/gdobbe/Notes        # path to repo
-EDITOR=`which geany`                # your favorite text editor!
+source $HOME/.nsrc
 
 # today's filename, along with simple numbers for the year and month direcotries
 FILE=$(date +%m-%d)-notes
@@ -10,10 +8,10 @@ YEAR=$(date +%Y)
 MONTH=$(date +%m)
 
 # look for a file matching the pattern of mm-dd-notes
-if [ ! -f $NOTESPATH/$YEAR/$MONTH/$FILE ]; then
+if [ ! -f $REPODIR/$YEAR/$MONTH/$FILE ]; then
     # if it doesn't exist, create it.
     echo "No file for today. Creating."
-    touch $NOTESPATH/$YEAR/$MONTH/$FILE
+    touch $REPODIR/$YEAR/$MONTH/$FILE
 fi
 # then, open that file in the background with our trusty editor
-${EDITOR} $NOTESPATH/$YEAR/$MONTH/$FILE &
+${EDITOR} $REPODIR/$YEAR/$MONTH/$FILE &

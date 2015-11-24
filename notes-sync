@@ -1,17 +1,18 @@
 #!/bin/bash
-source ./.nsrc
+
+source $HOME/.nsrc
+
 # SETTINGS!
 GIT=`which git`                         # some systems have problems with identifying where git is
-FLASHBAKE=`which flashbake`             # same as above; see https://github.com/commandline/flashbake/wiki/Running for more info
 
 # first, import the ssh key because cron and variable scope and all that
 ssh-agent bash -c 'ssh-add '$SSH_KEY    
 
 # switch to the notes repo
-cd ${REPODIR}
+cd $REPODIR
 
 # have flashbake commit the repo
-${FLASHBAKE} $REPODIR 
+/usr/local/bin/flashbake $REPODIR 
 # then, pull from remote 
 ${GIT} pull origin master
 # then push!
