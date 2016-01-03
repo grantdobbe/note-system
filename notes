@@ -9,7 +9,12 @@ MONTH=$(date +%m)
 
 # look for a file matching the pattern of mm-dd-notes
 if [ ! -f $REPODIR/$YEAR/$MONTH/$FILE ]; then
-    # if it doesn't exist, create it.
+	# also check for the directory.
+	if [ ! -d $REPODIR/$YEAR/$MONTH/ ]; then
+		# if the directory doesn't exist, create it first using the recursive method.
+		mkdir -p $REPODIR/$YEAR/$MONTH
+	fi
+	# if the file doesn't exist, create it.
     echo "No file for today. Creating."
     touch $REPODIR/$YEAR/$MONTH/$FILE
 fi
