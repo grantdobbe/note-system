@@ -19,6 +19,8 @@ To use this tool as your very own:
 And that's it. Enjoy!
 
 ### Release Notes
+v0.3, 03 January 2016:
+- added automatic creation of year and month folders if they don't exist
 
 v0.2, 24 November 2015: 
 - incorporated a pull request from @retornam to use a config file
