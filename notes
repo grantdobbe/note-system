@@ -6,13 +6,13 @@ FILE=$(date +%m-%d)-notes
 YEAR=$(date +%Y)
 MONTH=$(date +%m)
 
+# if we throw the flag for yesterday's notes, then figure out what yesterday is and open that file
 if [[ $* == *--yesterday* ]]; then
 	FILE=$(date -d yesterday +%m-%d)-notes
 	YEAR=$(date -d yesterday +%Y)
 	MONTH=$(date -d yesterday +%m)
 	echo "Opening yesterday's notes."
 # look for a file matching the pattern of mm-dd-notes
-
 elif [ ! -f $REPODIR/$YEAR/$MONTH/$FILE ]; then
 	# also check for the directory.
 	if [ ! -d $REPODIR/$YEAR/$MONTH/ ]; then

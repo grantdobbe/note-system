@@ -19,6 +19,8 @@ To use this tool as your very own:
 And that's it. Enjoy!
 
 ### Release Notes
+v0.4, 05 May 2016:
+- added a flag for opening yesterday's notes (--yesterday)
 v0.3, 03 January 2016:
 - added automatic creation of year and month folders if they don't exist
 
