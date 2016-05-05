@@ -1,5 +1,4 @@
 #!/bin/bash
-
 source $HOME/.nsrc
 
 # today's filename, along with simple numbers for the year and month direcotries
@@ -7,8 +6,14 @@ FILE=$(date +%m-%d)-notes
 YEAR=$(date +%Y)
 MONTH=$(date +%m)
 
+if [[ $* == *--yesterday* ]]; then
+	FILE=$(date -d yesterday +%m-%d)-notes
+	YEAR=$(date -d yesterday +%Y)
+	MONTH=$(date -d yesterday +%m)
+	echo "Opening yesterday's notes."
 # look for a file matching the pattern of mm-dd-notes
-if [ ! -f $REPODIR/$YEAR/$MONTH/$FILE ]; then
+
+elif [ ! -f $REPODIR/$YEAR/$MONTH/$FILE ]; then
 	# also check for the directory.
 	if [ ! -d $REPODIR/$YEAR/$MONTH/ ]; then
 		# if the directory doesn't exist, create it first using the recursive method.
