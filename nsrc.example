@@ -2,3 +2,4 @@
 REPODIR=""              # where your notes repo lives
 SSH_KEY=""              # the key you want to use for connecting to your remote git repository
 EDITOR=""               # your favorite text editor (use `which editor` if you have path problems)
+BACKGROUND="true"	# set this to "false" if you want your editor to open in the foreground

@@ -24,4 +24,8 @@ elif [ ! -f $REPODIR/$YEAR/$MONTH/$FILE ]; then
     touch $REPODIR/$YEAR/$MONTH/$FILE
 fi
 # then, open that file in the background with our trusty editor
-${EDITOR} $REPODIR/$YEAR/$MONTH/$FILE &
+if test "$BACKGROUND" = "true"; then
+	${EDITOR} $REPODIR/$YEAR/$MONTH/$FILE &
+else
+	${EDITOR} $REPODIR/$YEAR/$MONTH/$FILE 
+fi
